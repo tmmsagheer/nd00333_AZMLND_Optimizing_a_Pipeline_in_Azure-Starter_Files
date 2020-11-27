@@ -100,6 +100,8 @@ The Voting Ensemble used ***MaxAbs Scaler (Scaling the features) with XGBoost (E
 
 **5. Save the model data to output folder**
 
+## Finally
+**Compute cluster was cleaned after the experiments were completed. This helps us in keeping the resource utilization in check.**
 
 ## Pipeline comparison
 
