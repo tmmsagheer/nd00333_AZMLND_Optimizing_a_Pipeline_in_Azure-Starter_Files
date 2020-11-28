@@ -119,4 +119,16 @@ The difference in Accuracy is not much, but the effort and time taken were relat
 
 ## Future work
 
-**AutoML could be set up with a different metric (AUC, ROC, Precision & Recall, etc.) than Accuracy to identify the best performing model. Relying on Accuracy alone might lead us to choose an underperforming model.**
+We have used **Accuracy** as a primary metric for comparing the Logistic Regression tuned by HyperDrive and XGBoost classifier by AutoML. Accuracy measures the correctness with which each entry is classified. In this particular dataset, since there is a class imbalance (Test data had ~10% positive classes) there is a probability of the best performing test model to do badly on new and unseen future data. To avoid this scenario, we can also utilise multiple other metrics to choose our models. 
+
+***Precision***: How good is the model in identifying the positive class?
+
+***Recall***: How good is the model in identifying the positive and negative classes?
+
+***Receiver Operator Characteristic and Area Under the Curve***: Plot of Recall and emphasizing how good the model is in correctly identifying positive and negative classes compared to a random choice
+
+***Weighted Accuracy***: A weight is assigned to the entries based on the proportion of positive class to the total entries. The accuracy of each entry classification is weighted and averaged to arrive at the final metric.
+
+***Confusion Matrix***: A table showing the raw numbers of actual and predicted positive and negative classes. This is very powerful metric since it allows an intuitive explanation of the class distribution and also the accuracy, precision and recall metrics.
+
+Many such metrics are already available in Azure Machine Learning. Augmenting our choice of model with at least one of these metrics would allow us to be confident in the model selection rather than leaving it for chance. If the chosen model performs better or worse on unseen and new data, we could atleast pinpoint the exact reason by comparing the different metrics instead of guessing with just the accuracy of the model.
